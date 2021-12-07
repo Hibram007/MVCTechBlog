@@ -11,7 +11,17 @@ const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // look up session syntax for server.js implementation - check m.14 module code.
-// const se
+/* const sess = {
+  secret: 'Super secret secret',
+  cookie: { maxAge: 900000 }, //Idle logout of 15 minutes
+  rolling: true,
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  })
+};
+*/
 
 app.use(session(sess));
 
