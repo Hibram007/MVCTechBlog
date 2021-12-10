@@ -1,9 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/config");
+const bcrypt = require('bcrypt');
 
-class User extends Model {}
-
-// will need to add in pass word val- review bcrypt before attempting - check m.14/project 2 code
+class User extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 User.init(
     {
@@ -26,14 +29,22 @@ User.init(
       },
     },
     {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
-  }
-  // will need to add hook for bycrpt - check async funct code form m.14
-);
+      hooks: {
+          async beforeCreate(newUserData) {
+              newUserData.password = await bcrypt.hash(newUserData.password, 10);
+              return newUserData;
+          },
 
+          async beforeUpdate(updatedUserData) {
+              updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+              return updatedUserData;
+          }
+      },
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'user'
+  });
 
 module.exports = User;
