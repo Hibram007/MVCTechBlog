@@ -1,51 +1,57 @@
 .header-style {
-  background-color: rgb(119, 53, 53);
-  color: black;
+  background-color: rgb(238, 89, 243);
+  color: yellow;
   padding: 30px;
+  border-radius: 5px;
+  border: rgb(83, 82, 82)
 }
 
 nav a {
-  font-size: large;
+  font-size: 25px;
   font-weight: 600;
-  margin: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .header-box {
-  background-color: rgb(201, 224, 166);
+  background-color: white;
   margin: 10px;
   width: 360px;
   opacity: 0.8;
   text-align: center;
   text-decoration: none;
-  box-shadow: 6px 5px rgb(137, 138, 145);
+  color: yellow;
+  border-radius: 15px;
 }
 
 .header-txt {
   margin: 10px;
   padding: 10px;
-  font-size: 36px;
+  font-size: 46px;
   font-weight: 700;
   text-decoration: none;
 }
 
 body {
-  background-color: beige;
+  background-color: whitesmoke;
 }
 
 .log-form {
-  border: black;
-  border-style: double;
-  background-color: beige;
+  border:rgb(83, 82, 82);
+  border-style: ridge;
+  background-color: rgb(246, 197, 248);
+  border-radius: 5px;
 }
 
 .sign-form {
-  border: black;
-  border-style: double;
-  background-color: beige;
+  border: rgb(83, 82, 82);
+  border-style:ridge;
+  background-color: rgb(246, 197, 248);
+  border-radius: 5px;
 }
 
 .new-post {
-  background-color: darkred;
+  background-color: rgb(204, 3, 160);
   font-weight: 700;
   color: aliceblue;
 }
@@ -59,14 +65,14 @@ body {
   margin-bottom: 20px;
   padding: 2.5%;
   border-radius: 20px;
-  background-color: rgb(119, 53, 53);
+  background-color: whitesmoke;
   text-decoration: none;
 }
 
 .content-card {
   padding: 2%;
   text-decoration: none;
-  background-color: beige;
+  background-color: whitesmoke;
   color: black;
 }
 
@@ -75,7 +81,7 @@ body {
   border: rgb(119, 53, 53);
   border-style: groove;
   margin-bottom: 10px;
-  background-color: rgb(119, 53, 53);
+  background-color: whitesmoke;
 }
 
 .comment-card {
@@ -83,7 +89,7 @@ body {
   border: rgb(119, 53, 53);
   border-style: groove;
   margin-bottom: 10px;
-  background-color: rgb(119, 53, 53);
+  background-color: whitesmoke;
 }
 
 .single-post {
