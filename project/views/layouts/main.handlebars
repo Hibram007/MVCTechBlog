@@ -14,20 +14,17 @@
         <header class="header-style">
             <nav class="nav-bar mb-3">
                 <a href="/">Home</a>
-                {{#if logged_in}}
-                <a class="text-warning disabled">Welcome {{logged_name}}!</a>
                 <a href="/dashboard">Dashboard</a>
-                <a href="/" id="logout">Logout</a>
-                {{else}}
+                <a href="/post-group">View Posts</a>
                 <a href="/login">Login</a>
-                {{/if}}
+                <a href="/signup">Sign Up</a>
             </nav>
             <div class="header-box rounded">
                 <a href="/" class="header-txt">TechBlog</a>
             </div>
         </header>
+        
         <main class="container container-fluid mt-5">
-            {{!-- Renderer the main page --}}
             {{{ body }}}
         </main>
         <footer class="d-flex justify-content-center mt-5">
@@ -46,3 +43,5 @@
 </body>
 
 </html>
+<script src="/js/login.js"></script> 
+<script src="/js/logout.js"></script>

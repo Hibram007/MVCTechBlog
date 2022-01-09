@@ -20,6 +20,7 @@
 - after log in or sign up you will be able to Create Posts, Read certain posts, and Delete posts.
 
 ## ScreenShot
+![tech blog](https://user-images.githubusercontent.com/87105978/148667638-265075c9-74b9-466a-8bf6-ebc35840ed44.png)
 
 ## Deployed app link
 - [Deployed Link](https://)
