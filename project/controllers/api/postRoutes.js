@@ -3,48 +3,62 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const newPost = await Post.create({
-            ...req.body,
-            user_id: req.session.user_id,
+router.post('/api/posts', withAuth, (req, res) => {
+
+    Post.create({
+
+        body: req.body,
+        user_id: req.session.user_id
+    })
+        .then(newPost => res.json(newPost))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-        res.redirect('/dashboard');
-    } catch (error) {
-        res.status(400).json(error);
-    }
 });
 
-router.put('/:id', withAuth, async (req,res) => {
-    try {
-        const postUdate = await Post.update(
-            {
-            ...req.body,
-            user_id: req.session.user_id
-            },
-            {
-                where: {
-                    id: req.params.id
-                }
-            });
-            res.status(200).json(postUdate)
-    } catch (error) {
-        res.status(400).json(error);
-    }
-});
-
-router.delete('/:id', withAuth, async (req,res) => {
-    try {
-        const deletePost = await Post.destroy({
+router.put('/api/post/:id:id', withAuth, (req, res) => {
+    Post.update(
+        {
+            body: req.body
+        },
+        {
             where: {
                 id: req.params.id
             }
+        }
+    )
+        .then(affectedRows => {
+            if (!affectedRows) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-        res.status(200).json(deletePost);
-    } catch (error) {
-        res.status(400).json(error);
-    }
 });
 
+router.delete('/api/post/:id:id', withAuth, (req, res) => {
+    // console.log('id', req.params.id);
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(affectedRows => {
+            if (!affectedRows) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
